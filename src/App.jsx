@@ -46,6 +46,19 @@ function App() {
           color: "white",
           width: "100%",
         }}>
+           {/* Contact Information */}
+        <div className="mt-4 md:mt-0">
+          <h3 className="text-lg font-medium">Contact Us</h3>
+          <p className="text-gray-400 text-sm">Email: support@FoodFirst.com</p>
+          <p className="text-gray-400 text-sm">Phone: +1 234 567 890</p>
+        </div>
+
+        {/* Social Media Links */}
+        <div className="mt-4 md:mt-0 flex space-x-4">
+          <a href="#" className="text-gray-400 hover:text-white">Facebook  |</a>
+          <a href="#" className="text-gray-400 hover:text-white">Twitter   |</a>
+          <a href="#" className="text-gray-400 hover:text-white">Instagram  </a>
+        </div>
           © 2025 FoodFirst  - All Rights Reserved
         </footer>
       </div>
