@@ -1,0 +1,74 @@
+/* Reset default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Full Page Background */
+html, body, #root {
+  height: 100vh;
+  width: 100vw;
+  background-Image: "https://th.bing.com/th/id/OIP.uNMnnnJpGz6EW4bqMoF5EgHaEm?w=271&h=180&c=7&r=0&o=5&dpr=1.4&pid=1.7')";
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Optional: Dark Overlay for a better Zomato-like effect */
+#root::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+  z-index: -1;
+}
+
+/* Navbar */
+nav {
+  background-color: rgba(209, 44, 77, 0.9); /* Slight transparency */
+  padding: 15px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Navigation Links */
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: white; /* Text visible on dark overlay */
+}
+
+/* Footer */
+footer {
+  background-color: rgba(255, 101, 132, 0.9);
+  padding: 15px;
+  text-align: center;
+  color: white;
+  width: 100%;
+}
