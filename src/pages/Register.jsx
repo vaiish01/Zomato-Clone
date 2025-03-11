@@ -1,38 +1,101 @@
-import { useState } from "react";
-import API from "../api"; // Import API utility
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function Register() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
+const Signup = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const res = await API.post("/auth/register", { name, email, password });
-      setMessage(res.data.message); // Success message
-      alert("Registration successful!"); // Alert message
-    } catch (error) {
-      const errorMsg = error.response?.data?.error || "Registration failed";
-      setMessage(errorMsg);
-      alert(errorMsg); // Alert on error
-      console.error("Error:", error.response?.data);
-    }
+    const successMessage = `Signup Successful! Details: \n${JSON.stringify(formData, null, 2)}`;
+    localStorage.setItem("signupMessage", successMessage);
+    alert(successMessage);
+    setTimeout(() => {
+      navigate("/login");
+    }, 2000);
+  };
+
+  const containerStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "100vh",
+    backgroundColor: "white",
+  };
+
+  const formStyle = {
+    backgroundColor: "white",
+    padding: "40px",
+    borderRadius: "8px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    width: "400px",
+    textAlign: "center",
+  };
+
+  const inputStyle = {
+    width: "100%",
+    padding: "15px",
+    margin: "15px 0",
+    borderRadius: "6px",
+    border: "1px solid #ddd",
+    fontSize: "16px",
+  };
+
+  const buttonStyle = {
+    backgroundColor: " rgba(240, 99, 127, 0.9)",
+    color: "white",
+    padding: "15px 20px",
+    borderRadius: "6px",
+    border: "none",
+    cursor: "pointer",
+    width: "100%",
+    fontSize: "16px",
   };
 
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
-      <h2>Register</h2>
-      {message && <p>{message}</p>}
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" }}>
-        <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required style={{ padding: "10px", width: "250px" }} />
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required style={{ padding: "10px", width: "250px" }} />
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required style={{ padding: "10px", width: "250px" }} />
-        <button type="submit" style={{ padding: "10px 20px", background: "#ff6b81", color: "white", border: "none", borderRadius: "5px", cursor: "pointer" }}>Register</button>
+    <div style={containerStyle}>
+      <form style={formStyle} onSubmit={handleSubmit}>
+        <h2>Sign Up</h2>
+        <input 
+          style={inputStyle} 
+          type="text" 
+          name="name"
+          placeholder="Name" 
+          value={formData.name} 
+          onChange={handleChange} 
+        />
+        <input 
+          style={inputStyle} 
+          type="email" 
+          name="email"
+          placeholder="Email" 
+          value={formData.email} 
+          onChange={handleChange} 
+        />
+        <input 
+          style={inputStyle} 
+          type="password" 
+          name="password"
+          placeholder="Password" 
+          value={formData.password} 
+          onChange={handleChange} 
+        />
+        <button style={buttonStyle} type="submit">Sign Up</button>
       </form>
     </div>
   );
-}
+};
 
-export default Register;
+export default Signup;
