@@ -1,12 +1,52 @@
-# React + Vite
+# Zomato Clone – Food Delivery Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Zomato-inspired food delivery web application developed using the MERN Stack (MongoDB, Express.js, React.js, and Node.js).
 
-Currently, two official plugins are available:
+The project focuses on creating a user-friendly interface where users can explore food items and restaurants.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Browse food items and restaurants.
+- View food details and prices.
+- Interactive and user-friendly interface.
+- Responsive website design.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- **Frontend:** React.js, JavaScript, HTML, CSS
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+
+## Installation and Setup
+
+1. Clone the repository:
+
+```bash
+git clone <your-repository-url>
+```
+
+2. Navigate to the project folder:
+
+```bash
+cd zomato-clone
+```
+
+3. Install the dependencies:
+
+```bash
+npm install
+```
+
+4. Start the application:
+
+```bash
+npm run dev
+```
+
+## Project Purpose
+
+This project was developed to gain practical experience in full-stack web development and understand the integration of frontend, backend, and database technologies using the MERN Stack.
+
+## Author
+
+Developed as a MERN Stack development project.
